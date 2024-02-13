@@ -91,9 +91,9 @@ There are 3 parts to the application
 4. The Backend server will be running by default on port 4000 
        
 After running both frontend and backend servers, we can use most features such as :
-Signing up an account
-Loggin into your account
-add products to cart
+* Signing up an account
+* Loggin into your account
+* add products to cart
 
 
     
@@ -124,7 +124,7 @@ add products to cart
    
     
 
-when you run the backend server you gain features such as
+when you run the Admin server you gain features such as :
 * New product creation
 * Product deletion
 * View all products
