@@ -18,15 +18,15 @@ has detailed product descriptions, images, and pricing information for each item
 Enable users to add items to their shopping carts and adjust quantities as needed.
 Implement functionality for users to remove items from their carts and proceed to checkout when ready.
 
-### Custom 3D Model Upload:
+### Custom 3D Model Upload(pending):
 Allow users to upload their custom 3D models directly through the web application.
 Support various file formats commonly used for 3D models, such as STL, OBJ, and FBX.
 
-### Estimation of Printing Costs:
+### Estimation of Printing Costs(pending):
 Upon uploading a custom 3D model, provide users with an estimated cost for printing based on factors such as material, size, complexity, and printing method (e.g., FDM, SLA).
 Display the estimated cost to users along with the uploaded model, allowing them to make informed decisions before proceeding with the printing order.
 
-### Order Management:
+### Order Management(pending):
 Enable users to review their order history, including past purchases and uploaded 3D models awaiting printing.
 
 ### Responsive Design:
@@ -34,7 +34,7 @@ Responsive and optimized for a seamless user experience across devices of all sc
 Admin Panel
 
 ### Admin DashBoard:
-Admin panel with features for managing products and addming new products
+Admin panel with features for managing products and adding new products
 
 # Running the Application
 
@@ -77,17 +77,43 @@ There are 3 parts to the application
    npm i 
    ```
    
-3. Run the backend server using the command
+3. Run the admin server using the command
 
    ```bash
    npm run dev
    ```
     
 After running both frontend and backend servers, we can use most features such as :
-* 
+Signing up an account
+Loggin into your account
+add products to cart
+
+
+    
+# Admin :
+1. Navigate to the admin by using
+   
+   ```bash
+   cd ../admin
+   ```
+   
+2. Install all dependencies by running
+   
+   ```bash
+   npm i 
+   ```
+   
+3. Run the backend server using the command
+
+   ```bash
+   npm run dev
+   ```
     
 
-
+when you run the backend server you gain features such as
+* New product creation
+* Product deletion
+* View all products
 
 
 
