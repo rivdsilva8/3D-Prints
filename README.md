@@ -68,7 +68,7 @@ There are 3 parts to the application
 1. Navigate to the backend by using
    
    ```bash
-   cd ./backend
+   cd ../backend
    ```
    
 2. Install all dependencies by running
