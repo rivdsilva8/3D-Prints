@@ -47,10 +47,22 @@ There are 3 parts to the application
 # Front-End :
 1. Navigate to the Frontend by using
    
-```bash
+   ```bash
    cd ./frontend
    ```
-3. Navigate to the Frontend 
+   
+2. Install all dependencies by running
+   
+   ```bash
+   npm i 
+   ```
+   
+3. Run the Frontend server using the command
+
+   ```bash
+   npm start
+   ```
+    
 
 
 
