@@ -62,6 +62,29 @@ There are 3 parts to the application
    ```bash
    npm start
    ```
+
+
+# back-End :
+1. Navigate to the backend by using
+   
+   ```bash
+   cd ./backend
+   ```
+   
+2. Install all dependencies by running
+   
+   ```bash
+   npm i 
+   ```
+   
+3. Run the backend server using the command
+
+   ```bash
+   npm run dev
+   ```
+    
+After running both frontend and backend servers, we can use most features such as :
+* 
     
 
 
