@@ -35,3 +35,25 @@ Admin Panel
 
 ### Admin DashBoard:
 Admin panel with features for managing products and addming new products
+
+## Running the Application
+
+There are 3 parts to the application
+
+* Front-End
+* Back-End
+* Admin
+
+# Front-End :
+1. Navigate to the Frontend by using
+   ```bash```
+   cd ./
+3. Navigate to the Frontend 
+
+
+
+
+
+
+
+
