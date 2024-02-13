@@ -36,7 +36,7 @@ Admin Panel
 ### Admin DashBoard:
 Admin panel with features for managing products and addming new products
 
-## Running the Application
+# Running the Application
 
 There are 3 parts to the application
 
