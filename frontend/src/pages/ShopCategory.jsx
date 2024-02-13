@@ -6,6 +6,7 @@ import dropdown_icon from "../componenets/assets/dropdown_icon.png";
 import Item from "../componenets/item/Item";
 export default function ShopCategory(props) {
   const { all_product } = useContext(ShopContext);
+  console.log("all_products =" + all_product);
   return (
     <div className="shop-category">
       <Banner name={"Shop By Category"} />
@@ -19,20 +20,16 @@ export default function ShopCategory(props) {
       </div>
       <div className="shopcategory-products">
         {all_product.map((item, i) => {
-          if (props.category === item.category) {
-            return (
-              <Item
-                key={i}
-                id={item.id}
-                name={item.name}
-                image={item.image}
-                new_price={item.new_price}
-                old_price={item.old_price}
-              />
-            );
-          } else {
-            return null;
-          }
+          return (
+            <Item
+              key={i}
+              id={item.id}
+              name={item.name}
+              image={item.image}
+              new_price={item.new_price}
+              old_price={item.old_price}
+            />
+          );
         })}
       </div>
       <div className="shopcategory-loadmore">Explore More</div>

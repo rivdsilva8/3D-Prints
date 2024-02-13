@@ -6,6 +6,7 @@ import upload_area from "../../assets/upload_area.svg";
 export const AddProduct = () => {
   const [image, setImage] = useState(false);
   const [productDetails, setProductDetails] = useState({
+    id: "",
     name: "",
     image: "",
     category: "",
@@ -30,6 +31,7 @@ export const AddProduct = () => {
     formData.new_price = parseInt(formData.new_price);
     formData.old_price = parseInt(formData.old_price);
     formData.append("product", image);
+
     console.log(productDetails);
 
     try {

@@ -15,11 +15,61 @@ export default function LoginSignup() {
   // }, [formData]);
 
   const login = async () => {
-    console.log("Login funct exec", formData);
+    try {
+      if (!formData.email || !formData.password) {
+        throw "all fields have not been filled";
+      }
+      console.log("Login funct exec", formData);
+      let responseData;
+      await fetch("http://localhost:4000/login", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+        .then((response) => response.json())
+        .then((data) => (responseData = data));
+
+      if (responseData.success) {
+        localStorage.setItem("auth-token", responseData.token);
+        window.location.replace("/");
+      } else {
+        throw "either username or password is incorrect";
+      }
+    } catch (e) {
+      alert(e);
+    }
   };
 
   const signup = async () => {
-    console.log("Signup funct exec", formData);
+    try {
+      if (!formData.username || !formData.email || !formData.password) {
+        throw "all fields have not been filled";
+      }
+      console.log("Signup funct exec", formData);
+      let responseData;
+      await fetch("http://localhost:4000/signup", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+        .then((response) => response.json())
+        .then((data) => (responseData = data));
+
+      if (responseData.success) {
+        localStorage.setItem("auth-token", responseData.token);
+        window.location.replace("/");
+      } else {
+        alert(responseData.error);
+      }
+    } catch (e) {
+      alert(e);
+    }
   };
 
   const changeHandler = (e) => {
