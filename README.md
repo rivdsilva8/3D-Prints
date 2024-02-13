@@ -18,15 +18,15 @@ has detailed product descriptions, images, and pricing information for each item
 Enable users to add items to their shopping carts and adjust quantities as needed.
 Implement functionality for users to remove items from their carts and proceed to checkout when ready.
 
-### Custom 3D Model Upload(pending):
+### Custom 3D Model Upload (pending) :
 Allow users to upload their custom 3D models directly through the web application.
 Support various file formats commonly used for 3D models, such as STL, OBJ, and FBX.
 
-### Estimation of Printing Costs(pending):
+### Estimation of Printing Costs (pending) :
 Upon uploading a custom 3D model, provide users with an estimated cost for printing based on factors such as material, size, complexity, and printing method (e.g., FDM, SLA).
 Display the estimated cost to users along with the uploaded model, allowing them to make informed decisions before proceeding with the printing order.
 
-### Order Management(pending):
+### Order Management (pending) :
 Enable users to review their order history, including past purchases and uploaded 3D models awaiting printing.
 
 ### Responsive Design:
@@ -63,6 +63,12 @@ There are 3 parts to the application
    npm start
    ```
 
+4. The Frontend server will be running by default on port 
+   open the link on a web browser to view the application
+
+   ```bash
+   http://localhost:
+   ```
 
 # back-End :
 1. Navigate to the backend by using
@@ -82,7 +88,8 @@ There are 3 parts to the application
    ```bash
    npm run dev
    ```
-    
+4. The Backend server will be running by default on port 4000 
+       
 After running both frontend and backend servers, we can use most features such as :
 Signing up an account
 Loggin into your account
@@ -108,6 +115,13 @@ add products to cart
    ```bash
    npm run dev
    ```
+4. The Admin server will be running by default on port 
+   open the link on a web browser to view the application
+
+   ```bash
+   http://localhost:
+   ```
+   
     
 
 when you run the backend server you gain features such as
