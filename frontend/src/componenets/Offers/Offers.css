@@ -16,6 +16,11 @@
   justify-content: center;
 }
 
+.offers-right iframe {
+  height: 100vh;
+  width: 90vh;
+}
+
 .offers-left h1 {
   color: #171717;
   font-size: 80px;

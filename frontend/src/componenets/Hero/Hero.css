@@ -43,9 +43,10 @@
 .hero-latest-btn {
   display: flex;
   justify-content: center;
+  cursor: pointer;
   align-items: center;
   gap: 15px;
-  height: 60px;
+  height: 30px;
   width: 310px;
   border-radius: 75px;
   margin-top: 30px;
