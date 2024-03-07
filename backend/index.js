@@ -67,9 +67,35 @@ const Product = mongoose.model("Product", {
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+    required: false,
+  },
+  dimensions: {
+    length: {
+      type: Number,
+      required: false
+    },
+    width: {
+      type: Number,
+      required: false
+    },
+    height: {
+      type: Number,
+      required: false
+    }
+  },
+  colors: {
+    type: [String], // This makes colors an array of strings
+    required: false,
+  },
   category: {
     type: String,
     required: true,
+  },
+  tags: {
+    type: [String], // This makes tags an array of strings
+    required: false,
   },
   new_price: {
     type: Number,
@@ -77,7 +103,7 @@ const Product = mongoose.model("Product", {
   },
   old_price: {
     type: Number,
-    required: true,
+    required: false,
   },
   date: {
     type: Date,
@@ -105,10 +131,14 @@ app.post("/addproduct", async (req, res) => {
     name: req.body.name,
     image: req.body.image,
     category: req.body.category,
+    description: req.body.description,
+    colors: req.body.colors,
+    dimensions: req.body.dimensions,
+    tags:req.body.tags,
     new_price: req.body.new_price,
     old_price: req.body.old_price,
   });
-  console.log(product);
+  console.log("product passed into fucntion =",product);
   await product.save();
   console.log("saved");
 
@@ -119,7 +149,6 @@ app.post("/addproduct", async (req, res) => {
 });
 
 //API for deleting products
-
 app.post("/removeproduct", async (req, res) => {
   try {
     let product = await Product.findById(req.body._id);
@@ -302,5 +331,30 @@ app.listen(port, (error) => {
     console.log("server Running on port " + port);
   } else {
     console.log("Error : " + error.message);
+  }
+});
+
+
+//schema for emails
+const emails = mongoose.model("emails", {
+  email: {
+    type: String,
+    unique: true,
+  },
+});
+app.post("/subscribe", async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    // Check if the email is valid (you can perform further validation here)
+
+    // Save the email to your database or perform any necessary actions
+    const newEmail = new emails({ email });
+    await newEmail.save();
+
+    res.status(200).json({ message: "Subscription successful" });
+  } catch (error) {
+    console.error("Error subscribing:", error);
+    res.status(500).json({ error: "Subscription failed" });
   }
 });

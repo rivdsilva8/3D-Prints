@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./ListProduct.css";
 import cross_icon from "../../assets/cross_icon.png";
+
 export const ListProduct = () => {
-  const [allproducts, setAllProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
 
   const fetchInfo = async () => {
-    await fetch("http://localhost:4000/allproducts")
-      .then((res) => res.json())
-      .then((data) => {
-        setAllProducts(data);
-      });
+    const response = await fetch("http://localhost:4000/allproducts");
+    const data = await response.json();
+    setAllProducts(data);
   };
 
   useEffect(() => {
     fetchInfo();
   }, []);
 
-  const remove_product = async (_id) => {
+  const removeProduct = async (_id) => {
     await fetch("http://localhost:4000/removeproduct", {
       method: "POST",
       headers: {
@@ -27,50 +26,54 @@ export const ListProduct = () => {
     });
     await fetchInfo();
   };
+
+  function formatDate(timestamp) {
+    const date = new Date(timestamp);
+    const options = { month: 'long', day: 'numeric', year: 'numeric' };
+    const formattedDate = date.toLocaleDateString('en-US', options);
+    return formattedDate;
+}
   return (
     <div className="list-product">
       <h1>All Prints List</h1>
-      <div className="listproduct-format-main">
-        <p>Products</p>
-        <p>Title</p>
-        <p>Old Price</p>
-        <p>New Price</p>
-        <p>Category</p>
-        <p>Remove</p>
-      </div>
-
-      <div className="listproducts-allproducts">
-        {allproducts.map((product, index) => {
-          return (
-            <>
-              <hr />
-              <div
-                key={index}
-                className="listproduct-format-main listproduct-format"
-              >
+      <div className="card-container">
+        {allProducts.map((product, index) => (
+          <div key={index} className="card">
+            <div className="card-content">
+              <div className="image-container">
                 <img
                   src={product.image}
-                  alt=""
-                  className="listproduct-product-icon"
-                />
-                <p>{product.name}</p>
-                <p>${product.old_price}</p>
-                <p>${product.new_price}</p>
-                <p>{product.category}</p>
-                <img
-                  onClick={() => {
-                    remove_product(product._id);
-                  }}
-                  className="listproduct-remove-icon"
-                  src={cross_icon}
-                  alt=""
+                  alt={product.name}
+                  className="card-image"
                 />
               </div>
-              <hr />
-            </>
-          );
-        })}
+              <div className="details">
+              <img
+              onClick={() => removeProduct(product._id)}
+              className="remove-icon"
+              src={cross_icon}
+              alt="Remove"
+            />
+                <h2>{product.name}</h2>
+                <p>Date Added: {formatDate(product.date)}</p>
+                <p>Description: {product.description}</p>
+                <p>
+                  Dimensions: {product.dimensions.length} x{" "}
+                  {product.dimensions.width} x {product.dimensions.height}
+                </p>
+                <p>Colors: {product.colors.join(", ")}</p>
+                <p>Category: {product.category}</p>
+                <p>Tags: {product.tags.join(", ")}</p>
+                <p>Old Price: ${product.old_price}</p>
+                <p>New Price: ${product.new_price}</p>
+                <p>Available: {product.available ? "Yes" : "No"}</p>
+              </div>
+            </div>
+          
+          </div>
+        ))}
       </div>
     </div>
   );
 };
+
